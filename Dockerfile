@@ -22,7 +22,7 @@ COPY resources/js/ /app/resources/js/
 COPY resources/css/ /app/resources/css/
 
 WORKDIR /app
-RUN npm install && npm build
+RUN npm install && npm run build
 
 
 FROM php:8.2-fpm
