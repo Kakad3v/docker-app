@@ -22,7 +22,7 @@ COPY resources/js/ /app/resources/js/
 COPY resources/css/ /app/resources/css/
 
 WORKDIR /app
-RUN yarn install && yarn production
+RUN npm install && npm build
 
 
 FROM php:8.2-fpm
