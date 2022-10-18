@@ -17,9 +17,9 @@ FROM node:18-alpine as frontend
 
 RUN mkdir -p /app/public
 
-COPY package.json webpack.mix.js yarn.lock /app/
+COPY package.json /app/
 COPY resources/js/ /app/resources/js/
-COPY resources/sass/ /app/resources/sass/
+COPY resources/css/ /app/resources/css/
 
 WORKDIR /app
 RUN yarn install && yarn production
@@ -45,7 +45,6 @@ COPY . /var/www/
 COPY --from=vendor /app/vendor/ /var/www/vendor/
 COPY --from=frontend /app/public/js/ /var/www/public/js/
 COPY --from=frontend /app/public/css/ /var/www/public/css/
-COPY --from=frontend /app/mix-manifest.json /var/www/public/mix-manifest.json
 
 COPY .docker/Caddyfile /etc/Caddyfile
 COPY .docker/config/* $PHP_INI_DIR/conf.d/
