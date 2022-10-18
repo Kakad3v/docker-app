@@ -1,4 +1,4 @@
-FROM composer:2.4.s as vendor
+FROM composer:2.4.3 as vendor
 
 COPY database/ database/
 COPY composer.json composer.json
